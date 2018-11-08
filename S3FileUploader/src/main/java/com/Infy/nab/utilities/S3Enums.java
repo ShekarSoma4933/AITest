@@ -1,5 +1,7 @@
 package com.Infy.nab.utilities;
 
-public class sample {
+public class S3Enums {
+	
+	
 
 }
