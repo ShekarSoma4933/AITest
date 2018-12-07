@@ -1,28 +1,111 @@
 @import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
 body{
-  margin: 0;
-  padding: 0;
   font-family: monospace;
-  background: url(../../img/nab-img.jpg) no-repeat;
-  background-size:cover;
-  
+  font-size: 15px;
+  line-height: 1.5;
+  padding: 0px;
+  margin: 0px;
+  background-color:#ffffff;
+}
+/* Global */
+.container{
+  width:80%;
+  margin: auto;
+  over-flow:hidden;
 }
 
-.login-box{
-  background-color: rgba(0, 0, 0, 0.6);
-  position: absolute;
-  width: 350px;
-  height:300px;
-  position: absolute;
-  border-radius : 10px;
-  top: 45%;
-  right: -10%;
-  padding: 80px 40px;
-  transform: translate(-50%,-50%);
-  color: white;
+ul{
+ margin: 0;
+ padding: 0;
+ list-style: none;
 }
+
+.btn{
+  height: 40px;
+  background: #a31315;
+  border: 0;
+  border-radius : 4px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: #ffffff;
+  font-size: 18px;
+}
+
+.dark{
+    padding: 70px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* header */
+header{
+  background:#a31315;
+  color: #ffffff;
+  padding-top: 10px;
+  min-height: 60px;
+  border-bottom: #ffffff 1px solid;
+}
+
+header a{
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+header li{
+  float: left;
+  display: inline;
+  padding: 0 20px 0 20px;
+}
+
+header #branding img{
+  width:55px;
+  margin-top: -2px;
+}
+
+header #branding{
+  float: left;
+}
+
+header #branding h1{
+  margin: 0;
+}
+
+header nav{
+  float: right;
+  margin-top: 10px;
+}
+
+header a:hover{
+  color: #cccccc;
+  font-weight: bold;
+}
+
+/* Show Form */
+#showform{
+  min-height: 600px;
+}
+
+#showform form{
+  float: right;
+  margin-top: 50px;
+  margin-right: 10px;
+}
+
+section table{
+	float:left;
+}
+.dataTables_wrapper{
+	bottom:312px;
+	
+}
+
 .textbox{
-  width:100%;
+  width: 110%;
   overflow: hidden;
   font-size: 20px;
   padding: 8px 0;
@@ -30,7 +113,7 @@ body{
   border-bottom: 1px solid #ca0d0dd1;
 }
 ::placeholder {
-  color: white;
+  color: #ffffff;
 }
 .textbox i{
   width: 26px;
@@ -41,20 +124,46 @@ body{
   border: 0;
   outline: none;
   background: none;
-  color: white;
+  color: #ffffff;
   font-size: 18px;
   width: 80%;
   float: left;
   margin-right: 10px;
 }
-.btn{
-  width: 40%;
-  background-color: #ca0d0dd1;
-  border: solid #ca0d0dd1;
-  color: white;
-  padding: 5px;
-  font-size: 18px;
-  cursor: pointer;
-  margin: 12px 0;
-}
 
+footer{
+  padding: 10px;
+  margin-top: 50px;
+  color: #ffffff;
+  background-color: #a31315;
+  text-align: center;
+}
+ul li{
+	float : left;
+	width : 100px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	font-family: monospace;
+	font-size: 20px;
+	margin-right:4px;
+	color: white;
+	
+}
+ul li a{
+	text-decoration :none;
+	color: white;
+	display: block;
+}
+ul li a:hover{
+	background-color: rgba(0, 0, 0, 0.8);
+	cursor: pointer;
+	
+}
+ul li ul li{
+	width : 100px;
+	display: none;
+}
+ul li:hover ul li{
+	display: block;
+}

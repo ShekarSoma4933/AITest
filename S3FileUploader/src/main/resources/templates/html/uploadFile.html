@@ -1,65 +1,112 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
-<head>
-    <title>Nab Upload MultipartFile</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" th:href="@{/img/nab-logo.jpg}" href="../img/nab-logo.jpg"/>
-      <script src="/js/lib/jquery.min.js" th:src="@{/js/lib/jquery.min.js}"></script>
-      <script src="/js/index.js" th:src="@{/js/index.js}"></script>
-      <link rel="icon" th:href="@{/img/nab-logo.jpg}" href="../img/nab-logo.jpg"/>
-      <link rel="stylesheet" th:href="@{/css/upload.css}" href="../../upload.css"/>
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous"/>
- 	  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
-	  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
- 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-	
-</head>
- 
-<body id="page-wrap">
-	<div class="ulblock">
-			<ul>
-				<li><a>Home</a></li>
-				<li><a>Services</a>
-					<ul>
-					<li><a>Tool Requests</a></li>
-					<li><a id="s3Uploader">S3 Uploader</a></li>
-					</ul>
-				</li>
-			</ul>
-	</div>
-	
-	
-	<div class="container">
-		<div class="row">
-		<h1 style="font-family: monospace;font-size: 25px;color:white;font-weight:bold;margin-top: 48px;">AWS S3 File Uploader</h1>
-			<div class="col-sm-5" style="margin-top: 128px;margin-left: -240px;">
-				<form method="POST" enctype="multipart/form-data" id="fileUploadForm">
+  <head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width">
+	    <title>NAB | SignIn Form</title>
+	    <link rel="icon" th:href="@{/img/nab-logo.jpg}" href="../img/nab-logo.jpg"/>
+	    <link rel="stylesheet" th:href="@{/css/style.css}" href="../../style.css"/>
+	    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous"/>
+  		<script src="/js/lib/jquery.min.js" th:src="@{/js/lib/jquery.min.js}"></script>
+        <script src="/js/index.js" th:src="@{/js/index.js}"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+	    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+  </head>
+    <body>
+      <header>
+        <div class="container">
+          <div id="branding">
+            <img src="../img/nab.jpg" th:href="@{/img/nab.jpg}"  alt=""/>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Services</a></li>
+          </ul>
+        </nav>
+       </div>
+      </header>
+      <section id="showform">
+        <div class="container" id="uploadForm">
+          <form method="POST" enctype="multipart/form-data" id="fileUploadForm">
+          <div class="dark">
+                <h1>AWS S3 File Uploader</h1>
+				<div class="col-sm-5" style="margin-top: 36px;">
 					<div class="form-group">
-						<input type="file" class="form-control" id="uploadfile" placeholder="Upload File" value="" name="uploadfile"></input>
+						<input type="file" class="form-control" style="font-size:15px;" id="uploadfile" placeholder="Upload File" value="" name="uploadfile"></input>
 					</div>
+					<br/>
 			        <button type="submit" style="font-family: monospace;font-size: 15px;" class="btn" id="btnSubmit">Upload</button>
 			        <button type="button" style="font-family: monospace;font-size: 15px;" class="btn" id="btnGetFiles">Files</button>
-				</form>
-				<div id="listFiles" style="color:white;font-family: monospace;font-size: 15px;margin-top: 10px;">
-				</div>
-				
-				<!-- <table id="listFiles" cellspacing="0" width="100%">
-				    <thead>
-				      <tr>
-				        <th>Files</th>
-				        <th>Actions</th>
-				      </tr>
-				    </thead>
-	
-				</table> -->
-				
-			</div>
-		</div>
-	</div>
-</body>
+            </div>
+            </div>
+          </form>
+        </div>
+        
+	     <div class="panel-body" style="width:40%;margin-right: -20px;margin-left: 35px;">
+			<table id="fileListTable" class="display">
+				<thead>
+					<tr>
+						<th >Files</th>
+						<th >Action</th>
+					</tr>
+				</thead>
+			</table>
+		 </div>
+      </section>
+      
+      <footer>
+      <p>© National Australia Bank Limited.</p>
+      </footer>
+    </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

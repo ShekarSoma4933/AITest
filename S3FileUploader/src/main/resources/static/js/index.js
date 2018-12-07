@@ -1,13 +1,14 @@
 $(document).ready(function() {
 	
 	$("#alrdyUser").click(function() {
-		window.location.replace("/welcome/signIn");
+		window.location.replace("/welcome/login");
 	});
 	$("#frgtPwd").click(function() {
-		window.location.replace("/welcome/forgetPwd");
+		window.location.replace("/welcome/getPasswordPage");
 	});
 	
-	$("#signInForm").click(function() {
+	$("#signIn").click((event) => {
+	    event.preventDefault();
 		window.location.replace("/welcome/uploadFilePage");
 	});
 	
@@ -17,7 +18,7 @@ $(document).ready(function() {
 	});
 	
 	
-	$('.container').hide();
+	//$('#uploadForm').hide();
 	$("#s3Uploader").click(function() {
 		$('.container').show();
 	});
@@ -51,6 +52,12 @@ $(document).ready(function() {
 		event.preventDefault();
 		ajaxGet();
 	});
+	var fileListTable= $('#fileListTable').DataTable({		
+        "paging":true,
+        "ordering":false,
+        "searching": true,
+        "bInfo" : false,
+	});
 	
 	// DO GET
 	function ajaxGet(){
@@ -60,21 +67,32 @@ $(document).ready(function() {
 			url : "/welcome/getAllFiles",
 			success: (data) => {
 				
-				
+				$("#fileListTable tbody").empty();
+				var tbody = $('#fileListTable:last');
+				$.each(data, (index, filename) => {
+					tbody.append(
+						
+						'<tr>'+
+						'<td> <span style="color:black;font-family: monospace;font-size: 18px;list-style-type: none;margin-left:56px;">' + filename + '</span></td>'+
+						'<td> <a class="fas fa-trash-alt" style="margin-left: 150px;position: absolute;margin-top: 1px;" aria-hidden="true" onclick="deleteFile(\''+filename+'\')"></a>'+'<a class="fas fa-file-download" style="list-style-type: none;margin-left: 120px;color: black;" aria-hidden="true" href=/welcome/getfile/' + filename + ' ></a></td>'+
+						'</tr>'
+				);
+				});
+				/*
 					$("#listFiles").html("");
 					$("#listFiles").append('<ul>');
 					$.each(data, (index, filename) => {
-						$("#listFiles").append('<li><span style="color:white;font-family: monospace;font-size: 18px;">' + filename + '</span>'+'<a style="cursor:pointer;position:absolute;color:white;padding: 7px 0px;left:120%;" class="fas fa-trash-alt" aria-hidden="true" onclick="deleteFile(\''+filename+'\')"></a>'+'<a class="fas fa-arrow-circle-down" style="margin-left:80px;cursor:pointer;color:white;position: absolute;right: -46%;padding: 12px 16px;margin-top:-5px" aria-hidden="true" href=/welcome/getfile/' + filename + ' >'+'</a>'+'</li>');
-						$("#listFiles").append('<hr style="color:white;"/>');
+						$("#listFiles").append('<li><span style="color:black;font-family: monospace;font-size: 18px;list-style-type: none;margin-left:42px;">' + filename + '</span>'+'<a style="cursor:pointer;position:absolute;color:black;padding: 7px 0px;margin-left:80px" class="fas fa-trash-alt" aria-hidden="true" onclick="deleteFile(\''+filename+'\')"></a>'+'<a class="fas fa-arrow-circle-down" style="margin-left:110px;cursor:pointer;color:black;position: absolute;padding: 12px 16px;margin-top:-5px" aria-hidden="true" href=/welcome/getfile/' + filename + ' >'+'</a>'+'</li>');
+						$("#listFiles").append('<br/>');
 					});
 					$("#listFiles").append('</ul>');
-			
+			*/
 				
 			},
 			error : (err) => {
 				$("#listFiles").html(err.responseText);
 			}
-		});	
+		});		
 	}
 	// DO GET
 		
@@ -89,7 +107,9 @@ function deleteFile(data){
 		dataType : "json",
 		data : JSON.stringify({'keyName':data}),
 		success : function(data) {
-			$('.container').show();
+			fileListTable.clear();
+			fileListTable.rows.add(data);
+			fileListTable.draw();
 			
 		},
 		error : function() {
@@ -97,8 +117,102 @@ function deleteFile(data){
 		}
 	});
 }
-
-
+//
+//function getAllfiles(data){
+//
+//	alert(JSON.stringify(data));
+//	files[]
+//	
+//	var fileIdUnique = [];
+//	$.each(files, function(i, el){
+//	    if($.inArray(el, fileIdUnique) === -1) fileIdUnique.push(el);
+//	});
+//	attributes = [];
+//	fileNameArray = [];
+//	
+//	
+//	$.each(fileIdUnique, function( index, value ){
+//		
+//		
+//	console.log("value-->"+value);
+//	attributes["fileName"] = value.fileName;
+//	
+//	var jObject={} 
+//	for (i in attributes ){
+//		jObject[i] = attributes[i]
+//	}
+//	
+//
+//	fileNameArray.push(jObject);
+//	console.log(fileNameArray);
+//	
+//	
+//});
+//console.log("supplier Name-->"+JSON.stringify(fileNameArray));
+//
+//
+//supplier(fileNameArray);
+//
+//
+///*var dataTable= $('#Suplier').DataTable({		
+//	              "paging":false,
+//	              "ordering":false,
+//	              "searching": false,
+//	              "bInfo" : false,
+//});*/
+//
+//
+//	function supplier(fileNameArray){
+//		
+//		console.log("supplier Name inside-->"+fileNameArray);			
+//		console.log("supplier Name length-->"+fileNameArray.length);			
+//		
+//		
+//		
+//		$("#fileListTable tbody").empty();
+//		var tbody = $('#fileListTable:last');
+//		var i=1;
+//		
+//		var fileName="";
+//		
+//		$.each(fileNameArray, function(key, value){
+//		    $.each(value, function(key, value){
+//		        console.log(key+"----key, value-->"+value);
+//		    });
+//		});
+//			
+//		$.each(fileNameArray, function(key, value)
+//		{
+//			$.each(value, function(key, value){
+//			        console.log(key+"----key, value-->"+value);
+//			        
+//			        if(key === "supplierName") 
+//			        	fileName = value;
+//			});
+//			
+//			var fileId = "fileId"+i;	
+//			
+//				
+//			
+//			tbody.append(
+//					
+//					'<tr>'+
+//					'<td> <span name="'+fileId+'" id ="'+fileId+'" value="'+fileId+'" mandatory="true"><span/> </td>'+
+//					'<td> <button id="editDelFromtable"  type="button"  class="btn btn-danger btn-xs marrgt69 delete delFromtable"  style="margin-left:2px"> <span data-toggle="modal"><i class="fa  fa-trash-o fa-1x"></i></span></button> </td>'+
+//					'</tr>'
+//			);
+//			i++;
+//			
+//		});
+//			
+//	
+//		}
+//
+//
+//	
+//	
+//	
+//}
 
 /*
 $.fn.serializeObject = function(){

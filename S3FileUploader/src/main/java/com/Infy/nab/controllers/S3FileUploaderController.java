@@ -36,26 +36,30 @@ public class S3FileUploaderController{
 	 private S3UploadService s3UploadService;
  
 	 
-	 @RequestMapping(value={"/login"}, method={RequestMethod.GET})
-	 public ModelAndView homePage() { logger.info("Welcome home!");
-	   ModelAndView modelAndView = new ModelAndView("html/login");
-	   return modelAndView;
-	 }
-	 
 	 @RequestMapping(value={"/signIn"}, method={RequestMethod.GET})
-	 public ModelAndView signInPage() { logger.info("Welcome to signIn!");
+	 public ModelAndView homePage() { 
+		 logger.info("Welcome signIn!");
 	   ModelAndView modelAndView = new ModelAndView("html/signIn");
 	   return modelAndView;
 	 }
 	 
-	 @RequestMapping(value={"/forgetPwd"}, method={RequestMethod.GET})
-	 public ModelAndView forgetPwdPage() { logger.info("Welcome to forgetPwd!");
+	 @RequestMapping(value={"/login"}, method={RequestMethod.GET})
+	 public ModelAndView signInPage() { 
+		 logger.info("Welcome to login!");
+	   ModelAndView modelAndView = new ModelAndView("html/login");
+	   return modelAndView;
+	 }
+	 
+	 @RequestMapping(value={"/getPasswordPage"}, method={RequestMethod.GET})
+	 public ModelAndView forgetPwdPage() { 
+		 logger.info("Welcome to forgetPwd!");
 	   ModelAndView modelAndView = new ModelAndView("html/forgetPassword");
 	   return modelAndView;
 	 }
 	 
 	 @RequestMapping(value={"/uploadFilePage"}, method={RequestMethod.GET})
-	 public ModelAndView uploadFilePage() { logger.info("Welcome to forgetPwd!");
+	 public ModelAndView uploadFilePage() { 
+		 logger.info("Welcome to uploadFilePage!");
 	   ModelAndView modelAndView = new ModelAndView("html/uploadFile");
 	   return modelAndView;
 	 }

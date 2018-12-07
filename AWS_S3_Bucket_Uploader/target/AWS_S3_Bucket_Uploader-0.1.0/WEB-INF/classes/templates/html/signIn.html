@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width">
+	    <title>NAB | SignIn</title>
+	    <link rel="icon" th:href="@{/img/nab-logo.jpg}" href="../img/nab-logo.jpg"/>
+	    <link rel="stylesheet" th:href="@{/css/style.css}" href="../css/style.css"/>
+	    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous"/>
+	    <script src="/js/lib/jquery.min.js" th:src="@{/js/lib/jquery.min.js}"></script>
+        <script src="/js/index.js" th:src="@{/js/index.js}"></script>
+  </head>
+    <body>
+      <header>
+        <div class="container">
+          <div id="branding">
+             <img src="../img/nab.jpg" th:href="@{/img/nab.jpg}"  alt=""/>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Services</a></li>
+          </ul>
+        </nav>
+       </div>
+      </header>
+      <section id="showform" class="signinForm">
+        <div class="container">
+          <form>
+            <div class="dark">
+              <h1>Sign Up</h1>
+                <div class="textbox">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  <input type="text" style="font-family: monospace;" placeholder="Enter PID" name="" value=""/>
+                </div>
+                <div class="textbox">
+                  <i class="fa fa-envelope" aria-hidden="true"></i>
+                  <input type="email" style="font-family: monospace;" placeholder="Email" name="" value=""/>
+                </div>
+                <div class="textbox">
+                  <i class="fa fa-unlock" aria-hidden="true"></i>
+                  <input type="password" style="font-family: monospace;" placeholder="Password" name="" value=""/>
+                </div>
+                <div class="textbox">
+                  <i class="fa fa-lock" aria-hidden="true"></i>
+                  <input type="password" style="font-family: monospace;" placeholder="Confirm Password" name="" value=""/>
+                </div>
+                <button class="btn" id="signIn" type="submit" style="font-family: monospace;margin-top:10px;margin-left:220px;">SignIn</button>
+                <br>
+                <br>
+                <div>
+                  <a id="alrdyUser" style="color:#ffffff;cursor:pointer;text-decoration:underline;font-size: 17px;">Already User</a>
+                  <a id="frgtPwd" style="color:#ffffff;cursor:pointer;text-decoration:underline;margin-left :55px;font-size: 17px;">Forgot Password?</a>
+                </div>
+            </div>
+          </form>
+        </div>
+      </section>
+      <section id="showform" class="loginForm">
+        <div class="container">
+          <form>
+            <div class="dark">
+              <h1>Login In</h1>
+                <div class="textbox">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  <input type="text" id="pid" style="font-family: monospace;" placeholder="Enter PID" name="" value="">
+                </div>
+                <div class="textbox">
+                  <i class="fa fa-unlock" aria-hidden="true"></i>
+                  <input type="password" id="passwrd" style="font-family: monospace;" placeholder="Password" name="" value="">
+                </div>
+                <button class="btn" id="loginIn" type="submit" style="font-family: monospace;margin-top:10px;margin-left:220px;">login</button>
+                <br>
+                <br>
+                <div>
+                  <a id="frgtPwdLogin" style="color:#ffffff;cursor:pointer;text-decoration:underline;margin-left :5px;font-size: 17px;">Forgot Password?</a>
+                </div>
+            </div>
+          </form>
+        </div>
+      </section>
+      <section id="showform" class="forgetForm">
+        <div class="container">
+          <form>
+            <div class="dark">
+              <h1>Forget Password</h1>
+                <div class="textbox">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  <input type="text" id="pid" style="font-family: monospace;" placeholder="Enter PID" name="" value="">
+                </div>
+                <button class="btn" id="getPassword" type="submit" style="font-family: monospace;margin-top:10px;margin-left:220px;">Get Password</button>
+            </div>
+          </form>
+        </div>
+      </section>
+      <footer>
+      <p>© National Australia Bank Limited.</p>
+      </footer>
+    </body>
+</html>

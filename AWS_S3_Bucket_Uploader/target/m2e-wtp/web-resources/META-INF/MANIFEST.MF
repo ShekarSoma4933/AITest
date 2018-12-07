@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: AWS_S3_Bucket_Uploader
+Implementation-Version: 0.1.0
+Built-By: jaiganesha
+Implementation-Vendor-Id: org.springframework
+Build-Jdk: 1.8.0_191
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/AWS_S3_Bucket_Uploader
+Created-By: Maven Integration for Eclipse
+
